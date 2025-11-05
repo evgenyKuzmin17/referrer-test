@@ -3,33 +3,47 @@
   <head>
     <meta charset="utf-8" />
     <title>Referrer Test — payments</title>
-    <!-- Разрешаем передачу Referer между доменами -->
+    <!-- Разрешаем передавать Referer между доменами -->
     <meta name="referrer" content="origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; padding: 40px; }
-      a.button {
-        display: inline-block; padding: 12px 20px; border-radius: 8px;
-        background: #2b7df7; color: #fff; text-decoration: none; font-weight: 600;
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        margin: 0;
+        padding: 40px;
+        background: #f4f6f8;
+        color: #222;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
-      a.button:hover { background: #1e5fcc; }
-      .note { color: #555; margin-top: 12px; }
+      h1 { margin-bottom: 16px; }
+      a.button {
+        display: inline-block;
+        padding: 14px 28px;
+        background: #2b7df7;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 18px;
+        transition: background 0.3s;
+      }
+      a.button:hover { background: #185ec4; }
+      p.note { margin-top: 16px; color: #555; max-width: 600px; text-align: center; }
     </style>
   </head>
   <body>
-    <h1>Referrer Test — payments</h1>
-    <p>Клик по кнопке должен передать корректный <code>Referer</code> на домен Sheepy.</p>
-
-    <p>
-      <a class="button"
-         href="https://sheepy-develop.cpay.io/invoice/01k8z87k0ffv1dvg8d872w5e60"
-         >
-        Оплатить инвойс
-      </a>
-    </p>
-
+    <h1>Referrer Test — Payments Page</h1>
+    <a
+      class="button"
+      href="https://sheepy-develop.cpay.io/invoice/01k8z87k0ffv1dvg8d872w5e60"
+    >
+      Оплатить инвойс
+    </a>
     <p class="note">
-      Важно: переход именно "кликом" по ссылке. Открытие вручную в новом табе может обнулить <code>referrer</code>.
+      Ссылка откроется <strong>в текущей вкладке</strong>.  
+      <br />Кликни по кнопке, чтобы проверить передачу заголовка <code>Referer</code>.
     </p>
   </body>
 </html>
